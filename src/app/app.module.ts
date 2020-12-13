@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { PhoneDirectoryComponent } from './phone-directory/phone-directory.component';
+import { ListPhoneDirectoryComponent } from './phone-directory/list-phone-directory/list-phone-directory.component';
+import { EditPhoneDirectoryComponent } from './phone-directory/edit-phone-directory/edit-phone-directory.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PhoneDirectoryComponent,
+    ListPhoneDirectoryComponent,
+    EditPhoneDirectoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

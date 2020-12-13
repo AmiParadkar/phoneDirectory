@@ -1,0 +1,34 @@
+<div class="margin20 textCenter fs20">Phone Directory</div>
+<div class="textCenter">
+  <div class="textCenter inputContent">
+    <div class="txtLeft marginTB40 fb">
+      <div class="txtLeft">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="text" id="name" value="" class="form-control" formControlName="name" placeholder="Contact Name"
+              required /> &nbsp;
+            <!-- </div> -->
+            <!-- <div class="form-group"> -->
+            <input type="number" maxlength="10" id="mobile" value="" class="form-control" formControlName="mobile"
+              placeholder="Mobile Number" />&nbsp;
+            <!-- </div> -->
+            <!-- <div class="form-group"> -->
+            <input type="email" id="email" value="" class="form-control" formControlName="email"
+              placeholder="Email" />&nbsp;
+
+            <input type="submit" class="btn" id="submit" value="Add Contact" [disabled]="!contactForm.valid" />
+
+            <!-- <div id="error" class="dn error padT10 textCenter">Invalid Input! -->
+              <span *ngIf="!contactForm.get('name').valid && contactForm.get('name').touched" class="help-block"
+                style="color: red;"><br/>Please enter a valid name. Alphabets only, max lenght 20.</span>
+              <span *ngIf="!contactForm.get('mobile').valid && contactForm.get('mobile').touched" class="help-block"
+                style="color: red;"><br/>Please enter a valid mobile number. Numbers only, max lenght 10.</span>
+              <span *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched" class="help-block"
+                style="color: red;"><br/>Please enter a valid email address max length 40.</span>
+            <!-- </div> -->
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
