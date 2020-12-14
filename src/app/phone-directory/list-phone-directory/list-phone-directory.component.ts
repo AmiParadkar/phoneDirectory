@@ -11,6 +11,7 @@ import { PhoneDrirectoyService } from '../phone-directoy.service';
 export class ListPhoneDirectoryComponent implements OnInit, OnDestroy{
 
   contactList: Contact[] = [];
+  keyword = 'moblie'
   private sub: Subscription;
   constructor(private pbService: PhoneDrirectoyService) { }
 
@@ -30,6 +31,15 @@ export class ListPhoneDirectoryComponent implements OnInit, OnDestroy{
     } else {
       return 'white';
     }
+  }
+  selectByMobile(mobileNum: number){
+    this.contactList = this.pbService.getContactByMobile(mobileNum);
+    this.sub = this.pbService.contactListSubject
+        .subscribe(
+          (data: Contact[]) =>{
+            this.contactList = data;
+          }
+        )
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

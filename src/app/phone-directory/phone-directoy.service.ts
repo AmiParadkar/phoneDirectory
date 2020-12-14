@@ -21,4 +21,7 @@ export class PhoneDrirectoyService {
         this.contactList.push(cont);
         this.contactListSubject.next(this.contactList.slice());
     }
+    getContactByMobile(mobile: number): Contact[]{
+        return this.contactList.slice().filter(contact => contact.mobile === mobile);
+    }
 } 
